@@ -7,12 +7,18 @@
                     "name" : "LIST_OF_DESTINATIONS",
                     "values": [
                         {"name" : {"value" : "Arbeit"}},
-                        {"name" : {"value" : "Mich"}}
+                        {"name" : {"value" : "Privat"}}
                     ]
                 },
                 {
                     "name" : "MESSAGE",
-                    "values" : [{"name" : {"value" : "nachricht"}}]
+                    "values" : [
+                        {"name" : {"value" : "Abwaschen"}},
+                        {"name" : {"value" : "Einkaufen"}},
+                        {"name" : {"value" : "Aufröumen"}},
+                        {"name" : {"value" : "Bad putzen"}},
+                        {"name" : {"value" : "Geschenk für Mama kaufen"}}
+                    ]
                 }
             ],
             "intents":[
@@ -37,9 +43,10 @@
                         }
                     ],
                     "samples":[
-                        "sende mail an {destination}",
+                        "Sende Mail an {destination}",
+                        "Sende eine Email an {destination}",
                         "an {destination}",
-                        "sende mail zu {destination}",
+                        "Sende Mail zu {destination}",
                         "{destination}"
                     ]
                 },

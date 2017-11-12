@@ -7,7 +7,7 @@
                     "name" : "LIST_OF_DESTINATIONS",
                     "values": [
                         {"name" : {"value" : "work"}},
-                        {"name" : {"value" : "me"}}
+                        {"name" : {"value" : "private"}}
                     ]
                 },
                 {
