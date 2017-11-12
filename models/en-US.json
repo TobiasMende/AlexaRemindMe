@@ -12,7 +12,13 @@
                 },
                 {
                     "name" : "MESSAGE",
-                    "values" : [{"name" : {"value" : "message"}}]
+                    "values" : [
+                        {"name" : {"value" : "wash the dishes"}},
+                        {"name" : {"value" : "clean up"}},
+                        {"name" : {"value" : "buy christmas presents"}},
+                        {"name" : {"value" : "relax"}},
+                        {"name" : {"value" : "call dad"}}
+                    ]
                 }
             ],
             "intents":[

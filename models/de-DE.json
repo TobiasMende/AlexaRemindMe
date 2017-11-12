@@ -15,7 +15,7 @@
                     "values" : [
                         {"name" : {"value" : "Abwaschen"}},
                         {"name" : {"value" : "Einkaufen"}},
-                        {"name" : {"value" : "Aufröumen"}},
+                        {"name" : {"value" : "Aufräumen"}},
                         {"name" : {"value" : "Bad putzen"}},
                         {"name" : {"value" : "Geschenk für Mama kaufen"}}
                     ]
@@ -47,7 +47,9 @@
                         "Sende eine Email an {destination}",
                         "an {destination}",
                         "Sende Mail zu {destination}",
-                        "{destination}"
+                        "{destination}",
+                        "Email an {destination} zu senden",
+                        "Erinnerung an {destination} zu senden"
                     ]
                 },
                 {

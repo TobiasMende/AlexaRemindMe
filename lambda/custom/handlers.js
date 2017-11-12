@@ -22,6 +22,11 @@ module.exports = {
                     this.emit(':tell', this.t('COMMIT_MESSAGE', message, destination))
                 }
             }).bind(this));
+        },
+        'AMAZON.StopIntent' : stopIntent,
+        'AMAZON.CancelIntent' : stopIntent,
+        'Unhandled' : function() {
+            this.emit(':ask', this.t('RETRY'))
         }
     }), 
     
@@ -38,22 +43,21 @@ module.exports = {
         'SessionEndedRequest' : function() {
             console.log('Session ended with reason: ' + this.event.request.reason);
         },
-        'AMAZON.StopIntent' : function() {
-            this.response.speak('Bye');
-            this.emit(':responseReady');
-        },
         'AMAZON.HelpIntent' : function() {
             this.response.speak("You can try: 'alexa, send mail' or 'alexa, send mail to work'");
             this.emit(':responseReady');
         },
-        'AMAZON.CancelIntent' : function() {
-            this.response.speak(this.t('BYE'));
-            this.emit(':responseReady');
-        },
+        'AMAZON.StopIntent' : stopIntent,
+        'AMAZON.CancelIntent' : stopIntent,
         'Unhandled' : function() {
             console.log(this.event.request);
             this.response.speak("Sorry, I didn't get that.");
             this.emit('AMAZON.HelpIntent')
         }
     }
+}
+
+function stopIntent() {
+    this.response.speak(this.t('BYE'));
+    this.emit(':responseReady');
 }
