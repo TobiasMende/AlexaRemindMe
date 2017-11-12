@@ -1,11 +1,11 @@
-'use strict'
-var Alexa = require("alexa-sdk");
-var sendMessage = require("./send_message.js");
+'use strict';
+var Alexa = require('alexa-sdk');
+var sendMessage = require('./send_message.js');
 
 const states = {
     START: '_START',
     MESSAGE: '_MSG',
-}
+};
 
 let destination;
 module.exports = {
@@ -15,18 +15,18 @@ module.exports = {
             this.handler.state = states.START;
             sendMessage(destination, message, (function(err) {
                 if(err) {
-                    console.log(err)
+                    console.error(err);
                     this.emit(':tell', this.t('SEND_ERROR', err.message));
                 }
                 else {
-                    this.emit(':tell', this.t('COMMIT_MESSAGE', message, destination))
+                    this.emit(':tell', this.t('COMMIT_MESSAGE', message, destination));
                 }
             }).bind(this));
         },
         'AMAZON.StopIntent' : stopIntent,
         'AMAZON.CancelIntent' : stopIntent,
         'Unhandled' : function() {
-            this.emit(':ask', this.t('RETRY'))
+            this.emit(':ask', this.t('RETRY'));
         }
     }), 
     
@@ -36,23 +36,23 @@ module.exports = {
         },
         'SendMailToIntent': function () {
             destination = this.event.request.intent.slots.destination.value;
-            console.log("Destination is " + destination)
+            console.log('Destination is ' + destination);
             this.handler.state = states.MESSAGE;
-            this.emit(':ask', this.t('WHAT_TO_SEND', destination))
+            this.emit(':ask', this.t('WHAT_TO_SEND', destination));
         },
         'SessionEndedRequest' : function() {
             console.log('Session ended with reason: ' + this.event.request.reason);
         },
         'AMAZON.HelpIntent' : function() {
-            this.response.speak("You can try: 'alexa, send mail' or 'alexa, send mail to work'");
+            this.response.speak('You can try: \'alexa, send mail\' or \'alexa, send mail to work\'');
             this.emit(':responseReady');
         },
         'AMAZON.StopIntent' : stopIntent,
         'AMAZON.CancelIntent' : stopIntent,
         'Unhandled' : function() {
             console.log(this.event.request);
-            this.response.speak("Sorry, I didn't get that.");
-            this.emit('AMAZON.HelpIntent')
+            this.response.speak('Sorry, I didn\'t get that.');
+            this.emit('AMAZON.HelpIntent');
         }
     }
 }

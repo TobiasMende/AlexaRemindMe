@@ -1,6 +1,6 @@
 var aws = require('aws-sdk');
 var ses = new aws.SES({
-   region: 'us-east-1'
+    region: 'us-east-1'
 });
 
 module.exports = function (destination, message, callback) {
@@ -21,18 +21,18 @@ module.exports = function (destination, message, callback) {
                     Data: message
                 }
             },
-            Source: "mobishab@gmail.com"
+            Source: 'mobishab@gmail.com'
         };
     
         console.log('===SENDING EMAIL===');
-        var email = ses.sendEmail(eParams, function(err, data){
+        ses.sendEmail(eParams, function(err, data){
             if(!err) {
-                console.log("===EMAIL SENT===");
+                console.log('===EMAIL SENT===');
             }
-            callback(err)
+            callback(err);
         });
     } else {
         callback({ 'message' : 'No email address was found for ' + destination});
     }
     
-}
+};
