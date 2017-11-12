@@ -1,0 +1,61 @@
+{
+    "interactionModel":{
+        "languageModel":{
+            "invocationName":"Remind Me",
+            "types":[
+                {
+                    "name" : "LIST_OF_DESTINATIONS",
+                    "values": [
+                        {"name" : {"value" : "Arbeit"}},
+                        {"name" : {"value" : "Mich"}}
+                    ]
+                },
+                {
+                    "name" : "MESSAGE",
+                    "values" : [{"name" : {"value" : "nachricht"}}]
+                }
+            ],
+            "intents":[
+                {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+                },
+                {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+                },
+                {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+                },
+                {
+                    "name":"SendMailToIntent",
+                    "slots":[
+                        {
+                            "name": "destination",
+                            "type": "LIST_OF_DESTINATIONS"
+                        }
+                    ],
+                    "samples":[
+                        "sende mail an {destination}",
+                        "an {destination}",
+                        "sende mail zu {destination}",
+                        "{destination}"
+                    ]
+                },
+                {
+                    "name" : "MessageIntent",
+                    "slots" : [
+                        {
+                            "name" : "message",
+                            "type" : "MESSAGE"
+                        }
+                    ],
+                    "samples" : [
+                        "{message}"
+                    ]
+                }
+            ]
+        }
+    }
+}
