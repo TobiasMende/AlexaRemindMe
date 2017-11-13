@@ -6,8 +6,8 @@ var ses = new aws.SES({
 module.exports = function (destination, message, callback) {
     const config = require('./config.json');
     const dest = destination.toLowerCase();
-    if(dest in config.destinations) {
-        const recipient = config.destinations[dest];
+    if(dest in config.recipients) {
+        const recipient = config.recipients[dest];
         var eParams = {
             Destination: {
                 ToAddresses: [recipient]

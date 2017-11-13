@@ -44,14 +44,14 @@ module.exports = {
             console.log('Session ended with reason: ' + this.event.request.reason);
         },
         'AMAZON.HelpIntent' : function() {
-            this.response.speak('You can try: \'alexa, send mail\' or \'alexa, send mail to work\'');
+            this.response.speak('HELP_MESSAGE');
             this.emit(':responseReady');
         },
         'AMAZON.StopIntent' : stopIntent,
         'AMAZON.CancelIntent' : stopIntent,
         'Unhandled' : function() {
             console.log(this.event.request);
-            this.response.speak('Sorry, I didn\'t get that.');
+            this.response.speak('NOT_UNDERSTOD');
             this.emit('AMAZON.HelpIntent');
         }
     }
