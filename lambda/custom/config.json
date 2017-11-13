@@ -1,0 +1,7 @@
+{
+    "sender" : "dummy@dummy.com",
+    "recipients" : {
+        "privat" : "privataddress@me.com",
+        "arbeit" : "businessaddress@office.com"
+    }
+}

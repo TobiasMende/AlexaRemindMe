@@ -4,9 +4,10 @@ var ses = new aws.SES({
 });
 
 module.exports = function (destination, message, callback) {
-    const destinations = require('./destinations.json');
-    if(destination in destinations) {
-        const recipient = destinations[destination.toLowerCase()];
+    const config = require('./config.json');
+    const dest = destination.toLowerCase();
+    if(dest in config.destinations) {
+        const recipient = config.destinations[dest];
         var eParams = {
             Destination: {
                 ToAddresses: [recipient]
@@ -21,7 +22,7 @@ module.exports = function (destination, message, callback) {
                     Data: message
                 }
             },
-            Source: 'mobishab@gmail.com'
+            Source: config.sender
         };
     
         console.log('===SENDING EMAIL===');
